@@ -8,7 +8,7 @@
 #define PLUGIN_NAME "[VSH] Killstreak Calculator"
 #define PLUGIN_AUTHOR "Aurora"
 #define PLUGIN_DESCRIPTION "Calculates the amount of Killstreaks to give a player based on damage."
-#define PLUGIN_VERSION "1.0"
+#define PLUGIN_VERSION "1.1"
 #define PLUGIN_URL "http://tajdeluca.com"
  
 public Plugin:myinfo =
@@ -62,7 +62,7 @@ public OnTakeDamagePost(victim, attacker, inflictor, Float:damage, damagetype)
                 new Float:dmgRequired = float(maxHealth) * PERCENTAGE_REQUIRED;
                 new killStreak = damageDealt / RoundToCeil(dmgRequired);
  
-                SetEntProp(attacker, Prop_Send, "m_iKillStreak", killStreak);
+                SetEntProp(attacker, Prop_Send, "m_nStreaks", killStreak);
         }
 }
  
